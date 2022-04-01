@@ -5,12 +5,15 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotBlank;
 
+
+@Entity
+@Table(name = "heroes")
 public class Hero {
-    
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
+    
     private String name;
     private String [] superpoderes;
     
@@ -52,10 +55,9 @@ public class Hero {
     @Override
     public String toString() {
         return "{" +
-            " id='" + getId() + "'" +
-            ", name='" + getName() + "'" +
-            ", superpoderes='" + getSuperpoderes() + "'" +
+            " id='" + id + "'" +
+            ", name='" + name + "'" +
+            ", superpoderes='" + superpoderes + "'" +
             "}";
     }
-    
 }
