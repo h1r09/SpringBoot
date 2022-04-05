@@ -1,34 +1,40 @@
 package com.example.demo.entity;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
-
+import javax.validation.constraints.NotBlank;
 
 @Entity
 @Table(name = "heroes")
 public class Hero {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
-    
-    private String name;
-    private String [] superpoderes;
-    
+
     public Hero() {
 
     }
 
-    public Hero(long id, String name, String[] superpoderes) {
-        this.id = id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
+
+    @NotBlank(message = "Name is mandatory")
+    private String name;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<Superpoder> Superpoder;
+
+    public Hero(String name, List<Superpoder> Superpoder) {
         this.name = name;
-        this.superpoderes = superpoderes;
+        this.Superpoder = Superpoder;
     }
 
     public long getId() {
-        return this.id;
+        return id;
     }
 
     public void setId(long id) {
@@ -36,28 +42,24 @@ public class Hero {
     }
 
     public String getName() {
-        return this.name;
+        return name;
     }
 
     public void setName(String name) {
         this.name = name;
     }
 
-    public String[] getSuperpoderes() {
-        return this.superpoderes;
+    public List<Superpoder> getSuperpoder() {
+        return Superpoder;
     }
 
-    public void setSuperpoderes(String[] superpoderes) {
-        this.superpoderes = superpoderes;
+    public void setSuperpoder(List<Superpoder> Superpoder) {
+        this.Superpoder = Superpoder;
     }
-
 
     @Override
     public String toString() {
-        return "{" +
-            " id='" + id + "'" +
-            ", name='" + name + "'" +
-            ", superpoderes='" + superpoderes + "'" +
-            "}";
+        return "Hero [id=" + id + ", name=" + name + ", Superpoder=" + Superpoder + "]";
     }
+
 }
