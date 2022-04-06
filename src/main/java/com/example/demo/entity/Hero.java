@@ -1,4 +1,5 @@
 package com.example.demo.entity;
+
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -15,7 +16,6 @@ import javax.validation.constraints.NotBlank;
 public class Hero {
 
     public Hero() {
-
     }
 
     @Id
@@ -59,7 +59,7 @@ public class Hero {
 
     @Override
     public String toString() {
-        return "Hero [id=" + id + ", name=" + name + ", Superpoder=" + Superpoder + "]";
+        return "Hero [id=" + id + ", Nombre=" + name + ", Superpoder=" + Superpoder + "]";
     }
 
 }

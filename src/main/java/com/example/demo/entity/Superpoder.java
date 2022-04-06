@@ -1,11 +1,9 @@
 package com.example.demo.entity;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
 
 @Entity
 @Table(name = "superpoderes")
@@ -16,9 +14,7 @@ public class Superpoder {
 
     private String name;
 
-    public Superpoder() {
-        
-    }
+    public Superpoder() {}
 
     public Superpoder(String name) {
         this.name = name;
@@ -47,7 +43,4 @@ public class Superpoder {
             ", name='" + name + "'" +
             "}";
     }
-
-    
-    
 }
