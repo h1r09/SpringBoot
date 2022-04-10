@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 
 
 
-@CrossOrigin(origins = "", allowedHeaders = "")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RepositoryRestResource
 public interface HeroRepository extends CrudRepository<Hero, Long> {
     List<Hero> findAll();
