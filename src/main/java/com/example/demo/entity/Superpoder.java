@@ -4,6 +4,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
 
 @Entity
 @Table(name = "superpoderes")
@@ -11,7 +12,8 @@ public class Superpoder {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-
+    
+    @NotBlank(message = "Named is mandatory")
     private String name;
 
     public Superpoder() {}
@@ -38,9 +40,6 @@ public class Superpoder {
 
     @Override
     public String toString() {
-        return "{" +
-            " id='" + id + "'" +
-            ", name='" + name + "'" +
-            "}";
+        return "{id='" + id + "', name='" + name + "'}";
     }
 }
