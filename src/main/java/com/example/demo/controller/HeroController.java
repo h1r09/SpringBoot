@@ -22,7 +22,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
-@RequestMapping("heroes")
+@RequestMapping("/heroes")
 public class HeroController {
 
     @Autowired
